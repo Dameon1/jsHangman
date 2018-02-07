@@ -8,7 +8,7 @@
 
 
 // added letters//
-let lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 
 
 let lettersLower = ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
@@ -253,7 +253,7 @@ let letsWord = wordToFind.length
 let lettersAlreadyGuessed = [];
 let letGuessed = ""; //join to display an array of letters guesses
 let wrongGuess = [];
-
+let rights = [];
 
 
 
@@ -263,7 +263,22 @@ let reset = function(){
     letGuessed = "";
     wrongGuess = [];
     wordToFind = words[randNumb];
-    letsWord = wordToFind.length; 
+    letsWord = wordToFind.length;
+    rights = [];
+    
+    for (let l = 0; l < letsWord; l++){
+        rights.push("-");
+    }
+
+  // Reprints the guessesLeft to 10.
+  document.getElementById("guessesLeft").innerHTML = numbGuess;
+
+  // Prints the blanks at the beginning of each round in the HTML.
+  document.getElementById("word").innerHTML = rights.join(" ");
+
+  // Clears the wrong guesses from the previous round.
+//   document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
+
 }
 
 let checked = function(letter){
@@ -324,6 +339,27 @@ let winOrLose = function(){
 
 
 
+for (let m = 0; m < letters.length;m++){
+    let letterBtn = $("<button>");
+      letterBtn.addClass("letter-button lette letter-button-color");
+      letterBtn.attr("data-letter", letters[m]);
+      letterBtn.text(letters[m]);
+      $("#letters").append(letterBtn);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//reset();
 
 
 

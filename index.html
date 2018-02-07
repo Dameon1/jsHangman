@@ -8,6 +8,9 @@
     <!-- Linking reset and self styling CSS -->
   <link rel="stylesheet" type="text/css" href="assets/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <!-- jQuery added for ease of selectors -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 </head>
 
 
@@ -15,22 +18,25 @@
   <div>
         <h1>Welcome to the Crypto HANGMAN</h1>
   </div>  
-
+  <div>
+    Instructions: pick letters to decypher the crypto.
+</div>
 
   <div>
     <img src="assets/images/start.png" alt="fix" class="container">
   </div>
 
-    <div>
-        Instructions: pick letters to decypher the crypto.
-    </div>
-  <div>
-      This is where the guess the word goes
+   
+  <div id="word">
+        </div>
+  <div id="score">
+    score 
   </div>
-
-
-  <div>
-      This is where the letters to choose from goes
+<div id="guessesLeft" >
+  guessesleft
+</div>
+  <div id="letters" >
+      
   </div>
 
 
