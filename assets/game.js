@@ -14,96 +14,94 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
 "GXSHARES","RIPIO","POET","ADEX","BITCOINDIAMOND","KYBER","STORJ","RUFF","TIERION","VIBE","ETHOS",
 "MONACO","WAYKICHAIN","BREAD","HPB","FACTOM","EXPERIENCEPOINTS","METAL","RAIDENNETWORK","STEEM","BIBOXTOKEN"];
 
-// this holds the word to guess
-let wordToFind = "";
-// number of guesses the user gets
-let numberOfGuesses = 10;
-//how many wins the user has
-let wins = 0;
-// how many loses the user has
-let loses = 0;
-// random number based on how many words there are
-let randNumb = Math.floor(Math.random()*words.length);
-// number for how many blanks to display
-let letsWord = wordToFind.length;
-// displays letters already guessed
-let letGuessed = "";
-//displays blanks and letters on screen
-let displayedCharacters = [];
+//A group of variables that will be used throughout the game
 
+    // this holds the word to guess
+    let wordToFind = "";
+    // number of guesses the user gets
+    let numberOfGuesses = 10;
+    //how many wins the user has
+    let wins = 0;
+    // how many loses the user has
+    let loses = 0;
+    // random number based on how many words there are
+    let randNumb = Math.floor(Math.random()*words.length);
+    // number for how many blanks to display
+    let letsWord = wordToFind.length;
+    // displays letters already guessed
+    let letGuessed = "";
+    //displays blanks and letters on screen
+    let displayedCharacters = [];
 
+//A group of function that will perform the games logic
 
-let reset = function(){
-    numbGuess = 10;
-   
-    letGuessed = "";
-   
-    wordToFind = words[randNumb];
-    letsWord = wordToFind.length;
- displayedCharacters = [];
-    
+    // this reset starts the game over and starts the game in the beginning
+    let reset = function(){
+        numbGuess = 10;
+        letGuessed = "";
+        wordToFind = words[randNumb];
+        letsWord = wordToFind.length;
+        displayedCharacters = [];
+
+    //creates buttons with a "value"
     for (let m = 0; m < letters.length;m++){
-      let letterBtn = $("<button>");
-      letterBtn.addClass("letter-button letter letter-button-color");
-      letterBtn.attr("value", letters[m]);
-      letterBtn.text(letters[m]);
-      $("#letters").append(letterBtn);
-      }
+        let letterBtn = $("<button>");
+        letterBtn.addClass("letter-button letter letter-button-color");
+        letterBtn.attr("value", letters[m]);
+        letterBtn.text(letters[m]);
+        $("#letters").append(letterBtn);
+        }
+
+    //creates the HTML for the word with blanks 
     for (let l = 0; l < letsWord; l++){
-     displayedCharacters.push("-");
+        displayedCharacters.push("-");
         }
 
-  // Reprints the guessesLeft to 10.
-  document.getElementById("guessesLeft").innerHTML = numbGuess;
+    // Reprints the guessesLeft to 10.
+    document.getElementById("guessesLeft").innerHTML = numbGuess;
 
-  // Prints the blanks at the beginning of each round in the HTML.
-  document.getElementById("word").innerHTML = displayedCharacters.join(" ");
+    // Prints the blanks at the beginning of each round in the HTML.
+    document.getElementById("word").innerHTML = displayedCharacters.join(" ");
+    }
 
-  // Clears the wrong guesses from the previous round.
-//   document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
-
-}
-
-let checked = function(letter){
-   
-  
-    let locked = true;
-    console.log(wordToFind);
-    for (let i = 0; i < letsWord; i++){
-        if (wordToFind[i] === letter){
+    //function that checks to see if letter is in word and takes appropriate actions
+    let checked = function(letter){
+        let locked = true;
+        console.log(wordToFind);
+        for (let i = 0; i < letsWord; i++){
+            if (wordToFind[i] === letter){
             locked = false;
-        }
-    };
-    console.log(locked);
-    if (!locked){
-        for (let j = 0; j < letsWord; j++){
-            if (wordToFind[j] === letter){
-             displayedCharacters[j] = letter;
-                $("#word").text displayedCharacters.join(""));
             }
+            };
+        console.log(locked);
+        if (!locked){
+            for (let j = 0; j < letsWord; j++){
+            if (wordToFind[j] === letter){
+            displayedCharacters[j] = letter;
+            $("#word").text(displayedCharacters.join(""));
+            }
+            }
+            }
+        if (locked) {
+            numberOfGuesses--;
+            $("#guessesLeft").text(numberOfGuesses);
+            }
+            }
+
+    // function to decide if user wins or loses the game , adjusts the html accordingly and resets the game
+    let winOrLose = function(){
+        // change HTML
+        // if word === an array . toString . change Html and reset
+        // if guesses === 0 , html reset
         }
-    }
-     if (locked) {
-    //    change html
-       numberOfGuesses--;
-       $("#guessesLeft").text(numberOfGuesses);
-    }
-    
-}
 
-let winOrLose = function(){
-    // change HTML
-    // if word === an array . toString . change Html and reset
-    // if guesses === 0 , html reset
-}
+    // this reset function starts the game
+    reset();
 
-reset();
-
-$(document).ready(function() {
-    
-    $(document.body).on("click", ".letter", function() {
-    checked(this.value);
-    $(this).hide();
-       
-    })
-})
+    // this ensures that the page loads completely to attach onClick functions
+    $(document).ready(function() {
+        $(document.body).on("click", ".letter", function() {
+        checked(this.value);
+        $(this).hide();
+        })
+        })
