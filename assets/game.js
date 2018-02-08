@@ -1,280 +1,63 @@
 
-
-
-
-
-// alphabet, on clicks, comparisons, picture changes,
-// game logic
-
-
-// added letters//
+// Capital letters for buttons
 let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 
+// Crypto word bank
+let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","ETHEREUMCLASSIC","TRON","QTUM","ICON","ZCASH","HUOBITOKEN",
+"VECHAIN","BINANCECOIN","STELLARLUMENS","DASH","MONERO","IOTA","CARDANO","IOSTOKEN","BLUZELLE",
+"HSHARE","OMISEGO","NEM","NANO","LISK","NUBITS","INS","OFCOIN","BITCOINGOLD","BITSHARES","SWFTCOIN","FUNFAIR","VERGE",
+"AETERNITY","POWERLEDGER","LINKEYE","MEDISHARES","WALTON","QUANTSTAMP","NEBULAS","ODYSSEY","CENTRA",
+"THETATOKEN","STATUS","ZEROX","WAVES","GAS","TRUECHAIN","STK","SIACOIN","VIBERATE","SUNCONTRACT",
+"TOPCHAIN","IOTCHAIN","STRATIS","ACUTEANGELCLOUD","REQUEST","DENT","DIGIXDAO","CINDICATOR","DOGECOIN",
+"THEKEY","SIMPLETOKEN","SIRINLABS","INTERNETNODETOKEN","SANTIMENT","AELF","ZILLIQA",
+"TIMENEWBANK","SYSCOIN","QUNQUN","ENIGMA","SALT","DECENTRALAND","TENX","ELECTRONICPKCHAIN","SMARTMESH",
+"GXSHARES","RIPIO","POET","ADEX","BITCOINDIAMOND","KYBER","STORJ","RUFF","TIERION","VIBE","ETHOS",
+"MONACO","WAYKICHAIN","BREAD","HPB","FACTOM","EXPERIENCEPOINTS","METAL","RAIDENNETWORK","STEEM","BIBOXTOKEN"];
 
-let lettersLower = ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
-    //     1
-    //     Bitcoin
-    //     2		
-    //     Ethereum
-    //     3		
-    //     Ripple
-    //     4		
-    //     Litecoin
-    //     5		
-    //     Eos
-    //     6		
-    //     Bitcoincash
-    //     7		
-    //     Neo
-    //    8		
-    //     Ethereumclassic
-    //     9		
-    //     Tron
-    //     10		
-    //     Qtum
-    //     11		
-    //     Icon
-    //     12		
-    //     Zcash
-    //    13		
-    //     Huobitoken
-    //     14		
-    //     Vechain
-    //     15		
-    //     Binancecoin
-    //     16		
-    //     Stellarlumens
-    //     17		
-    //     Dash
-    //    18		
-    //     Monero
-    //     19		
-    //     Iota
-    //     20		
-    //     Cardano
-    //     21		
-    //     Iostoken
-    //     22		
-    //     Bluzelle
-    //    23		
-    //     Hshare
-    //     24		
-    //     Omisego
-    //    25		
-    //     Nem
-    //    26		
-    //     Nano
-    //    27		
-    //     Lisk
-    //     28		
-    //     Nubits
-    //    29		
-    //     Ins
-    //     30		
-    //     Ofcoin
-    //     31		
-    //     Bitcoingold
-    //     32		
-    //     Bitshares
-    //    33		
-    //     Swftcoin
-    //     34		
-    //     Funfair
-    //     35		
-    //     Verge
-    //     36		
-    //     Aeternity
-    //     37		
-    //     Powerledger
-    //    38		
-    //     Linkeye
-    //     39		
-    //     Medishares
-    //    40		
-    //     Walton
-    //     41		
-    //     Quantstamp
-    //     42		
-    //     Nebulas
-    //     43		
-    //     Odyssey
-    //     44		
-    //     Centra
-    //     45		
-    //     Thetatoken
-    //     46		
-    //     Status
-       
-    //     47		
-    //     zeroX
-    //    48		
-    //     Waves
-    //    49		
-    //     Gas
-    //    50		
-    //     Truechain
-    //    51		
-    //     Stk
-    //    52		
-    //     Siacoin
-    //     53		
-    //     Viberate
-    //      54		
-    //     Suncontract
-    //     55		
-    //     Topchain
-    //     56		
-    //     Iotchain
-    //     57		
-    //     Stratis
-    //     58		
-    //     Acuteangelcloud
-    //     59		
-    //     Request
-    //    60		
-    //     Dent
-    //     61		
-    //     Digixdao
-    //    62		
-    //     Cindicator
-    //     63		
-    //     Dogecoin
-    //     64		
-    //     Thekey
-    //    65		
-    //     Simpletoken
-    //     66		
-    //     Sirinlabs
-    //     67		
-    //     Internetnodetoken
-    //     68		
-    //     Santiment
-    //     69		
-    //     Aelf
-    //     70		
-    //     Zilliqa
-    //     71		
-    //     Timenewbank
-    //     72		
-    //     Syscoin
-    //     73		
-    //     Qunqun
-    //     74		
-    //     Enigma
-    //    75		
-    //     Salt
-    //     76		
-    //     Decentraland
-    //     77		
-    //     Tenx
-    //     78		
-    //     Electronicpkchain
-    //    79		
-    //     Smartmesh
-    //     80		
-    //     Gxshares
-    //    81		
-    //     Ripio
-    //    82		
-    //     Poet
-    //    83		
-    //     Adex
-    //      84		
-    //     Bitcoindiamond
-    //    85		
-    //     Kyber
-    //     86		
-    //     Storj
-    //     87		
-    //     Ruff
-    //     88		
-    //     Tierion
-    //    89		
-    //     Vibe
-    //    90		
-    //     Ethos
-    //    91		
-    //     Monaco
-    //    92		
-    //     Waykichain
-    //     93		
-    //     Bread
-    //    94		
-    //     Hpb
-    //    95		
-    //     Factom
-    //     96		
-    //     Qash
-    //     97		
-    //     Metal
-    //   	98	
-    //     Raidennetwork
-    //     99	
-    //     Steem
-    //    100
-    //     Biboxtoken
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// this holds the word to guess
 let wordToFind = "";
-let words = ["one","three","five"];
-let numbGuess = 10;
+// number of guesses the user gets
+let numberOfGuesses = 10;
+//how many wins the user has
 let wins = 0;
+// how many loses the user has
 let loses = 0;
+// random number based on how many words there are
 let randNumb = Math.floor(Math.random()*words.length);
-let letsWord = wordToFind.length
-let lettersAlreadyGuessed = [];
-let letGuessed = ""; //join to display an array of letters guesses
-let wrongGuess = [];
-let rights = [];
+// number for how many blanks to display
+let letsWord = wordToFind.length;
+// displays letters already guessed
+let letGuessed = "";
+//displays blanks and letters on screen
+let displayedCharacters = [];
 
 
 
 let reset = function(){
     numbGuess = 10;
-    lettersAlreadyGuessed = [];
+   
     letGuessed = "";
-    wrongGuess = [];
+   
     wordToFind = words[randNumb];
     letsWord = wordToFind.length;
-    rights = [];
+ displayedCharacters = [];
     
+    for (let m = 0; m < letters.length;m++){
+      let letterBtn = $("<button>");
+      letterBtn.addClass("letter-button letter letter-button-color");
+      letterBtn.attr("value", letters[m]);
+      letterBtn.text(letters[m]);
+      $("#letters").append(letterBtn);
+      }
     for (let l = 0; l < letsWord; l++){
-        rights.push("-");
-    }
+     displayedCharacters.push("-");
+        }
 
   // Reprints the guessesLeft to 10.
   document.getElementById("guessesLeft").innerHTML = numbGuess;
 
   // Prints the blanks at the beginning of each round in the HTML.
-  document.getElementById("word").innerHTML = rights.join(" ");
+  document.getElementById("word").innerHTML = displayedCharacters.join(" ");
 
   // Clears the wrong guesses from the previous round.
 //   document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
@@ -282,54 +65,31 @@ let reset = function(){
 }
 
 let checked = function(letter){
-    for (let k = 0; k < lettersAlreadyGuessed; k++){
-        if (letter === lettersAlreadyGuessed[k]){
-         return alert("tell player already guessed that")
-        }
-    }
-    lettersAlreadyGuessed.push(letter);
+   
+  
     let locked = true;
-
+    console.log(wordToFind);
     for (let i = 0; i < letsWord; i++){
         if (wordToFind[i] === letter){
             locked = false;
         }
     };
+    console.log(locked);
     if (!locked){
         for (let j = 0; j < letsWord; j++){
             if (wordToFind[j] === letter){
-                wordToFind[j] = letter;
+             displayedCharacters[j] = letter;
+                $("#word").text displayedCharacters.join(""));
             }
         }
     }
-    else if (locked) {
+     if (locked) {
     //    change html
-    //    guesses--
+       numberOfGuesses--;
+       $("#guessesLeft").text(numberOfGuesses);
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let checked = function(letter){
-//     // create boolean
-//     // for loop to change if letter is in word to true
-//     // if true , change letter by giving it a new value
-//     // if false, push letter into array and change guesses left
-// }
 
 let winOrLose = function(){
     // change HTML
@@ -337,36 +97,13 @@ let winOrLose = function(){
     // if guesses === 0 , html reset
 }
 
+reset();
 
-
-for (let m = 0; m < letters.length;m++){
-    let letterBtn = $("<button>");
-      letterBtn.addClass("letter-button lette letter-button-color");
-      letterBtn.attr("data-letter", letters[m]);
-      letterBtn.text(letters[m]);
-      $("#letters").append(letterBtn);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-//reset();
-
-
-
-
-
-
-
-
-// onClick functions for letters
-// call game functionality with Document.onReady
+$(document).ready(function() {
+    
+    $(document.body).on("click", ".letter", function() {
+    checked(this.value);
+    $(this).hide();
+       
+    })
+})
