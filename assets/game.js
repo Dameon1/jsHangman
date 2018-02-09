@@ -34,40 +34,9 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
 
 // this section is going to be where I work on the array for images to change
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let numberForImages = 0;
+let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/pic2.png",
+                "assets/images/pic3.png","assets/images/pic4.png","assets/images/lose.png","assets/images/win.png"]
 
 
 //A group of functions that will perform the games logic
@@ -75,8 +44,10 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
     // this reset starts the game over and starts the game in the beginning
     let reset = function(){
     // random number based on how many words there are
+    numberForImages = 0;
+    
     let randNumb = Math.floor(Math.random()*words.length);
-        numberOfGuesses = 10;
+        numberOfGuesses = 5;
         wordToFind = words[randNumb];
         letsWord = wordToFind.length;
         displayedCharacters = [];
@@ -100,7 +71,11 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
 
     // Prints the blanks at the beginning of each round in the HTML.
     document.getElementById("word").innerHTML = displayedCharacters.join(" ");
-    }
+    
+    $("#img").attr("src",images[0]);
+
+
+}
 
     //function that checks to see if letter is in word and takes appropriate actions
     let checked = function(letter){
@@ -123,6 +98,8 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
         if (locked) {
             numberOfGuesses--;
             $("#guessesLeft").text(numberOfGuesses);
+            numberForImages++;
+            $("#img").attr("src",images[numberForImages]);
             }
             }
 
@@ -130,12 +107,19 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
     let winOrLose = function(){
         if (numberOfGuesses===0){
             // stuff goes here
+            $("#img").attr("src",images[5]);
+            //alert("You lost. Play Again?");
             reset();
-            // losses++;
+            losses++;
+            $("#losses").text(losses);
             }
         if (wordToFind===displayedCharacters.join("")){
             //stuff goes here
+            $("#img").attr("src",images[6]);
+            //alert("You Won. Play Again?");
             reset();
+            wins++;
+            $("#score").text(wins);
             }
             }
 
@@ -149,5 +133,6 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
         checked(this.value);
         winOrLose();
         console.log(displayedCharacters.join(""));
+
         })
         })

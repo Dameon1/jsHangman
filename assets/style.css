@@ -6,10 +6,10 @@ html{
    height:auto;
 }
 body {
-    background-image: url("crypto.png");
+    /* background-image: url("crypto.png"); */
     background-size: 100%;
     text-align: center;
-    color: white;
+    color: rgb(245, 20, 20);
     font-size: 24px;
 
 }
