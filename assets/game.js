@@ -3,7 +3,7 @@
 let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-// Crypto word bank, also in capital letters
+// Crypto word bank, also in capital letters for ease of coding
 let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","ETHEREUMCLASSIC",
             "TRON","QTUM","ICON","ZCASH","HUOBITOKEN","VECHAIN","BINANCECOIN","STELLARLUMENS",
             "DASH","MONERO","IOTA","CARDANO","IOSTOKEN","BLUZELLE","HSHARE","OMISEGO","NEM",
@@ -36,7 +36,7 @@ let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","
 
 let numberForImages = 0;
 let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/pic2.png",
-                "assets/images/pic3.png","assets/images/pic4.png","assets/images/lose.png","assets/images/win.png"]
+              "assets/images/pic3.png","assets/images/pic4.png","assets/images/lose.png","assets/images/win.png"]
 
 
 //A group of functions that will perform the games logic
@@ -88,6 +88,19 @@ let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/
             };
         console.log(locked);
         if (!locked){
+
+
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/right.mp3");
+            audioElement.play();
+
+
+
+
+
+
+
+
             for (let j = 0; j < letsWord; j++){
             if (wordToFind[j] === letter){
             displayedCharacters[j] = letter;
@@ -96,6 +109,15 @@ let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/
             }
             }
         if (locked) {
+            
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/wrong.mp3");
+            audioElement.play();
+            
+            
+            
+            
+            
             numberOfGuesses--;
             $("#guessesLeft").text(numberOfGuesses);
             numberForImages++;
@@ -103,28 +125,113 @@ let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/
             }
             }
 
+ 
+ 
+ 
+ 
     // function to decide if user wins or loses the game , adjusts the html accordingly and resets the game
     let winOrLose = function(){
         if (numberOfGuesses===0){
             // stuff goes here
+           
             $("#img").attr("src",images[5]);
-            //alert("You lost. Play Again?");
-            reset();
+           
+
+
+
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/loser.mp3");
+            audioElement.play();
+
+
+
+
+
+
+
+
+
+
+
+           
+            $("#letters").empty();
+           $("#newGame").text("Play Again?")
+            let letterBtnYes = $("<button>");
+            let letterBtnNo = $("<button>");
+           
+            letterBtnYes.addClass("letter-button yes letter-button-color");
+            letterBtnYes.attr("value", "yes");
+            letterBtnYes.text("Yes");
+            $("#letters").append(letterBtnYes);
+           
+            letterBtnNo.addClass("letter-button no letter-button-color");
+            letterBtnNo.attr("value", "no");
+            letterBtnNo.text("No");
+            $("#letters").append(letterBtnNo);
+
+
+
+
+
+
+
+           // reset();
             losses++;
             $("#losses").text(losses);
             }
         if (wordToFind===displayedCharacters.join("")){
             //stuff goes here
             $("#img").attr("src",images[6]);
-            //alert("You Won. Play Again?");
-            reset();
+            
+            
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/winner.mp3");
+            audioElement.play();
+            
+            
+            $("#letters").empty();
+           
+            let letterBtnYes = $("<button>");
+            let letterBtnNo = $("<button>");
+           
+            letterBtnYes.addClass("letter-button yes letter-button-color");
+           
+            letterBtnYes.text("Yes");
+            $("#letters").append(letterBtnYes);
+           
+            letterBtnNo.addClass("letter-button no letter-button-color");
+           
+            letterBtnNo.text("No");
+            $("#letters").append(letterBtnNo);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             wins++;
             $("#score").text(wins);
+          
             }
             }
 
-    // this reset function starts the game
+    // this reset function starts the games
     reset();
+
+
+
+
+
+
+
+
+
 
     // this ensures that the page loads completely to attach onClick functions
     $(document).ready(function() {
@@ -135,4 +242,28 @@ let images = ["assets/images/start.png","assets/images/pic1.png","assets/images/
         console.log(displayedCharacters.join(""));
 
         })
+        $(document.body).on("click", ".yes", function() {
+            $("#newGame").empty();
+            
+            reset();});
+        $(document.body).on("click", ".no", function() {
+            //stuff goes here
+            $("#letters").empty();
+            $("#letters").text("Maybe some other time.")
+        });
         })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
