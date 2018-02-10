@@ -2,15 +2,15 @@
 
 ## Application details
 - This is Hangman.
-- Navigating to the **[where to find page] will reveal a layout of a welcome, instructions, an image for the hangman,
+- Navigating to the ** (Where to find page) will reveal a layout of a welcome, instructions, an image for the hangman,
 score tracking and buttons of the alphabet.
 - Users can either click or tap a letter to try to find the hidden cryptoCurrency that is randomly chosen.
-- Keeps a continuos score to track how well the user does.
+- Keeps a continuous score to track how well the user does.
 * ## Warning 
     ** this game is not easy
 
 ## Where to find
-You can play the game **[HERE](https://dameon1.github.io/javaHangman/)!
+You can play the game [HERE](https://dameon1.github.io/javaHangman/)!
 
 ## Instructions
  - A random word is chosen to start the game.
@@ -25,15 +25,17 @@ You can play the game **[HERE](https://dameon1.github.io/javaHangman/)!
 
 ## Coding styles
 I used two different styles to code the HTML.
-- *JavaScript to perform loops, "if" statements, and a couple of getElemnetById's.
-- *jQuery to make use of an easy to use catalog of options of changing the *HTML.
+- * JavaScript to perform loops, "if" statements, and a couple of getElemnetById's.
+- * jQuery to make use of an easy to use catalog of options of changing the *HTML.
 
-## Screenshot
+## Screenshots
 Two screenshots.
-- First one is what it looks like on mobile screens
+- Mobile screenshots by the left and right
+- Middle screenshot is what it looks like on a full sized screen
+
 <img align="left" width="100" height="100" src="assets/images/mobile1.png">
 <img align="right" width="100" height="100" src="assets/images/mobile2.png">
-- Second screenshot is on a full sized screen
+
 <p align="center">
   <img width="460" height="300" src="assets/images/full.png">
 </p>
