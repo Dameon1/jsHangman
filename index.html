@@ -11,55 +11,49 @@
   <!-- jQuery added for ease of selectors -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
-
-
-  <audio preload="auto">
-    <source src="assets/sounds/wrong.mp3"></source>
-</audio>
-
-
-
-
 </head>
 
-
 <body>
+                  <!-- Header -->
   <div>
-        <h1>Welcome to the Crypto HANGMAN</h1>
-  </div>  
-  <div>
- <h3 id="instructs"> Instructions: pick letters to decypher the crypto.</h3>  
-</div>
-
-  <div >
-      <img id="img" src="assets/images/start.png" alt="fix" class="container">
+    <h1>Welcome to the Crypto HANGMAN</h1>
   </div>
 
-   
+                  <!-- Instructions -->
+  <div>
+    <h3 id="instructs"> Instructions: Touch the letters to decypher the crypto.</h3>  
+  </div>
+
+                  <!-- Holds the images to be used -->
+  <div >
+    <img id="img" src="assets/images/start.png" alt="fix" class="container">
+  </div>
+                    
+                  <!-- Holds the word to be guessed -->
   <div class = "hold">
     <span id="word"></span>
   </div>
+
+                  <!-- Informs the user of Wins and Losses -->
   <div> 
-    <div>score</div> <div>wins:<span id="score"></span></div> <div>losses: <span id="losses"></span></div>
-  
+    <div>score</div>
+    <div>wins:<span id="score"></span></div>
+    <div>losses: <span id="losses"></span></div>  
   </div>
+ 
+                  <!-- Informs the user how many guesses they have left -->
   <div>
- You have: <span id="guessesLeft"></span> guesses left. </div>
+    You have: <span id="guessesLeft"></span> guesses left.
+  </div>
+  
+                    <!-- This div is for a new game options -->
   <div id="newGame">
   </div>
  
- <div id="letters">
-  <span id="style"></span>
+                    <!-- This div is for new letters -->
+  <div id="letters">
+    <span id="style"></span>
   </div>
-
-
-
-
-
-
-
-
-
 
 
 <!-- Linking the javaScript file -->
