@@ -30,7 +30,7 @@ I used two different styles to code the HTML.
 
 ## Screenshots
 Two screenshots.
-- Mobile screenshots by the left and right
+- Mobile screenshots on the left and right
 - Middle screenshot is what it looks like on a full sized screen
 
 <img align="left" width="100" height="100" src="assets/images/mobile1.png">
