@@ -34,7 +34,8 @@ let displayedCharacters = [];
 let numberForImages = 0;
 let images = ['assets/images/start.png','assets/images/pic1.png','assets/images/pic2.png','assets/images/pic3.png',
   'assets/images/pic4.png','assets/images/lose.png','assets/images/win.png'];
-
+  //for enabling sound
+let soundEnabled = false;
 
 //A group of functions that will perform the games logic
 
@@ -89,9 +90,11 @@ let checked = function(letter){
   //if letter is in the word
   if (!locked){
     //plays the audio "right"
-    let audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'assets/sounds/right.mp3');
-    audioElement.play();
+    if(soundEnabled){
+      let audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', 'assets/sounds/right.mp3');
+      audioElement.play();
+    }
     //loops through the word to find and replaces the HTML with the correct letter
     for (let j = 0; j < letsWord; j++){
       if (wordToFind[j] === letter){
@@ -198,5 +201,16 @@ $(document).ready(function() {
     $('#letters').empty();
     $('#letters').text('Maybe some other time.');
   });
+
+  $('#mute_button').on('click',()=>{
+    soundEnabled =!soundEnabled;
+  });
+
+  
+ 
+
+
+
+
   //closes out the document.ready    
 });
