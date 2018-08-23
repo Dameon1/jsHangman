@@ -34,8 +34,10 @@ let displayedCharacters = [];
 let numberForImages = 0;
 let images = ['assets/images/start.png','assets/images/pic1.png','assets/images/pic2.png','assets/images/pic3.png',
   'assets/images/pic4.png','assets/images/lose.png','assets/images/win.png'];
-  //for enabling sound
+//for enabling sound
 let soundEnabled = false;
+//audio button style
+let lineThroughText= true;
 
 //A group of functions that will perform the games logic
 
@@ -107,9 +109,11 @@ let checked = function(letter){
   //if letter is not in the word        
   if (locked) {
     //plays the audio "wrong"
-    let audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'assets/sounds/wrong.mp3');
-    audioElement.play();
+    if(soundEnabled){
+      let audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', 'assets/sounds/wrong.mp3');
+      audioElement.play();
+    }
     //changes the number of guesses           
     numberOfGuesses--;
     $('#guessesLeft').text(numberOfGuesses);
@@ -128,9 +132,11 @@ let winOrLose = function(){
     //changes the image in the HTML
     $('#img').attr('src',images[5]);
     //plays audio indicating the user lost
-    let audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'assets/sounds/loser.mp3');
-    audioElement.play();
+    if(soundEnabled){
+      let audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', 'assets/sounds/loser.mp3');
+      audioElement.play();
+    }
     //clears the letters div to prepare for new game
     $('#letters').empty();
     $('#newGame').text('Play Again?');
@@ -156,10 +162,12 @@ let winOrLose = function(){
   if (wordToFind===displayedCharacters.join('')){
     //changes the image
     $('#img').attr('src',images[6]);
-    //plays the audio for winning                    
-    let audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'assets/sounds/winner.mp3');
-    audioElement.play();
+    //plays the audio for winning 
+    if(soundEnabled){                   
+      let audioElement = document.createElement('audio');
+      audioElement.setAttribute('src', 'assets/sounds/winner.mp3');
+      audioElement.play();
+    }
     //empties out the letters div to prepare for a new game                    
     $('#letters').empty();
     //creates letiables for new buttons
@@ -204,6 +212,7 @@ $(document).ready(function() {
 
   $('#mute_button').on('click',()=>{
     soundEnabled =!soundEnabled;
+  
   });
 
   
