@@ -17,7 +17,7 @@ let words= ['BITCOIN','ETHEREUM','RIPPLE','LITECOIN','EOS','BITCOINCASH','NEO','
   'KYBER','STORJ','RUFF','TIERION','VIBE','ETHOS','MONACO','WAYKICHAIN','BREAD','HPB','FACTOM',
   'EXPERIENCEPOINTS','METAL','RAIDENNETWORK','STEEM','BIBOXTOKEN'];
 
-//A group of variables that will be used throughout the game
+//A group of letiables that will be used throughout the game
 // this holds the word to guess
 let wordToFind = '';
 // number of guesses the user gets
@@ -30,7 +30,7 @@ let losses = 0;
 let letsWord = wordToFind.length;
 //displays blanks and letters on screen
 let displayedCharacters = [];
-// these variable are for changing the images in the HTML
+// these letiable are for changing the images in the HTML
 let numberForImages = 0;
 let images = ['assets/images/start.png','assets/images/pic1.png','assets/images/pic2.png','assets/images/pic3.png',
   'assets/images/pic4.png','assets/images/lose.png','assets/images/win.png'];
@@ -77,7 +77,7 @@ let reset = function(){
 
 //function that checks to see if letter is in word and takes appropriate actions
 let checked = function(letter){
-  //creates a variable to toggle
+  //creates a letiable to toggle
   let locked = true;
   //loop to find if the letter chosen is in the word, if it is then changes locked boolean
   for (let i = 0; i < letsWord; i++){
@@ -89,7 +89,7 @@ let checked = function(letter){
   //if letter is in the word
   if (!locked){
     //plays the audio "right"
-    var audioElement = document.createElement('audio');
+    let audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'assets/sounds/right.mp3');
     audioElement.play();
     //loops through the word to find and replaces the HTML with the correct letter
@@ -104,7 +104,7 @@ let checked = function(letter){
   //if letter is not in the word        
   if (locked) {
     //plays the audio "wrong"
-    var audioElement = document.createElement('audio');
+    let audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'assets/sounds/wrong.mp3');
     audioElement.play();
     //changes the number of guesses           
@@ -125,13 +125,13 @@ let winOrLose = function(){
     //changes the image in the HTML
     $('#img').attr('src',images[5]);
     //plays audio indicating the user lost
-    var audioElement = document.createElement('audio');
+    let audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'assets/sounds/loser.mp3');
     audioElement.play();
     //clears the letters div to prepare for new game
     $('#letters').empty();
     $('#newGame').text('Play Again?');
-    //creates variables for Yes/No buttons
+    //creates letiables for Yes/No buttons
     let letterBtnYes = $('<button>');
     let letterBtnNo = $('<button>');
     //adds class and text to the YES button then attaches to letters div
@@ -154,12 +154,12 @@ let winOrLose = function(){
     //changes the image
     $('#img').attr('src',images[6]);
     //plays the audio for winning                    
-    var audioElement = document.createElement('audio');
+    let audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'assets/sounds/winner.mp3');
     audioElement.play();
     //empties out the letters div to prepare for a new game                    
     $('#letters').empty();
-    //creates variables for new buttons
+    //creates letiables for new buttons
     let letterBtnYes = $('<button>');
     let letterBtnNo = $('<button>');
     //adds class and text to the YES button then attaches to letters div
