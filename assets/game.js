@@ -60,6 +60,7 @@ let reset = function(){
     letterBtn.addClass('letter-button letter letter-button-color');
     letterBtn.attr('value', letters[m]);
     letterBtn.text(letters[m]);
+    letterBtn.attr('tabindex','0');
     $('#letters').append(letterBtn);
   }
   //creates the HTML for the word with blanks
