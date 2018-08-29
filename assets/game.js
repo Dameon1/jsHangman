@@ -58,7 +58,7 @@ let reset = function(){
   //clears out the previous game
   $('#letters').empty();
   //creates buttons with a "value"
-  for (let m = 0; m < letters.length;m++){
+  for (let m = 0; m < letters.length;m+=1){
     let letterBtn = $('<button>');
     letterBtn.addClass('letter-button letter letter-button-color');
     letterBtn.attr('value', letters[m]);
@@ -67,7 +67,7 @@ let reset = function(){
     $('#letters').append(letterBtn);
   }
   //creates the HTML for the word with blanks
-  for (let l = 0; l < letsWord; l++){
+  for (let l = 0; l < letsWord; l+=!){
     displayedCharacters.push('-');
   }
   // Reprints the guessesLeft to 10.
@@ -98,7 +98,7 @@ let checked = function(letter){
       audioElement.play();
     }
     //loops through the word to find and replaces the HTML with the correct letter
-    for (let j = 0; j < letsWord; j++){
+    for (let j = 0; j < letsWord; j+=1){
       if (wordToFind[j] === letter){
         displayedCharacters[j] = letter;
         $('#word').text(displayedCharacters.join(''));
@@ -118,7 +118,7 @@ let checked = function(letter){
     numberOfGuesses--;
     $('#guessesLeft').text(numberOfGuesses);
     //changes the images
-    numberForImages++;
+    numberForImages+=1;
     $('#img').attr('src',images[numberForImages]);
   }
   //closes out the checked function
@@ -182,7 +182,7 @@ let winOrLose = function(){
     letterBtnNo.text('No');
     $('#letters').append(letterBtnNo);
     //changes the wins and updates the HTML
-    wins++;
+    wins += 1;
     $('#score').text(wins);
   }
 };
