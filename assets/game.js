@@ -67,7 +67,7 @@ let reset = function(){
     $('#letters').append(letterBtn);
   }
   //creates the HTML for the word with blanks
-  for (let l = 0; l < letsWord; l+=!){
+  for (let l = 0; l < letsWord; l+=1){
     displayedCharacters.push('-');
   }
   // Reprints the guessesLeft to 10.
@@ -83,7 +83,7 @@ let checked = function(letter){
   //creates a letiable to toggle
   let locked = true;
   //loop to find if the letter chosen is in the word, if it is then changes locked boolean
-  for (let i = 0; i < letsWord; i++){
+  for (let i = 0; i < letsWord; i+=1){
     if (wordToFind[i] === letter){
       locked = false;
     }
@@ -115,7 +115,7 @@ let checked = function(letter){
       audioElement.play();
     }
     //changes the number of guesses           
-    numberOfGuesses--;
+    numberOfGuesses-=1;
     $('#guessesLeft').text(numberOfGuesses);
     //changes the images
     numberForImages+=1;
@@ -182,7 +182,7 @@ let winOrLose = function(){
     letterBtnNo.text('No');
     $('#letters').append(letterBtnNo);
     //changes the wins and updates the HTML
-    wins += 1;
+    wins+=1;
     $('#score').text(wins);
   }
 };
