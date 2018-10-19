@@ -212,7 +212,7 @@ $(document).ready(function() {
 
   $('#mute_button').on('click',()=>{
     soundEnabled =!soundEnabled;
-  
+    //soundEnabled ? $('#mute_button').innerHTML('Mute') : $('#mute_button').innerHTML('Sound');
   });
 
   
