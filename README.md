@@ -46,7 +46,7 @@ If you have a design suggestion, I stayed with a simple Black & White design and
 If you have *Xcode experience and can make it accessible for iOS users if would be appreciated.
 
 ## Credits
-WorldCoinIndex.com is where I found the list of words of the top 100 coins by volume
+[WorldCoinIndex](https://www.worldcoinindex.com) is where I found the list of words of the top 100 coins by volume
 
 
 ## Author
