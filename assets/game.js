@@ -4,7 +4,7 @@
                     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
         // Crypto word bank, also in capital letters for ease of coding
-            let words= ["BITCOIN","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","ETHEREUMCLASSIC",
+            let words= ["ARWEAVE","ETHEREUM","RIPPLE","LITECOIN","EOS","BITCOINCASH","NEO","ETHEREUMCLASSIC",
                     "TRON","QTUM","ICON","ZCASH","HUOBITOKEN","VECHAIN","BINANCECOIN","STELLARLUMENS",
                     "DASH","MONERO","IOTA","CARDANO","IOSTOKEN","BLUZELLE","HSHARE","OMISEGO","NEM",
                     "NANO","LISK","NUBITS","INS","OFCOIN","BITCOINGOLD","BITSHARES","SWFTCOIN","FUNFAIR",
