@@ -10,7 +10,7 @@ score tracking and buttons of the alphabet.
     ** this game is not easy
 
 ## Where to find
-You can play the game [HERE](https://dameon1.github.io/javaHangman/)!
+You can play the game [HERE](https://www.dameonmendoza.com/jsHangman/)!
 
 ## Instructions
  - A random word is chosen to start the game.
